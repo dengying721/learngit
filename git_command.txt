@@ -47,4 +47,24 @@
 12、删除文件：
 	（1）只删除本地。
 			rm <filename>
-	（2）
+	（2）删除本地版本库：
+			git rm <filename>
+	（3）本地工作区删除，但版本库中还有，可以做如下操作进行还原：
+			git checkout -- <filename>
+
+13、远程仓库：
+	（1）添加远程仓库，需要先在github上创建一个空库。创建后得到库地址：https://github.com/dengying721/learngit.git
+	（2）创建远程库后，本地git dash中使用如下命令将本地仓库与远程仓库关联：
+			git remote add origin https://github.com/dengying721/learngit.git
+	（3）将本地仓库的文件推送到远程仓库中：
+			git push -u origin master （第一次推送，加-u）
+			git push origin master （后续推送）
+	（4）将远程仓库的文件clone到本地仓库中：（假如远程仓库的地址ssh地址为：git@github.com:michaelliao/gitskills.git）
+			git clone git@github.com:michaelliao/gitskills.git
+	（5）进行文件上传或者clone下载时，可以使用https协议或者通过ssh的git协议。git协议快，https协议每次都要验证登录。
+	（6）本地机器需要生成公钥和私钥，然后将公钥添加到github的SSH key中，这样就能直接使用git协议了。
+			（a）进入 ~/.ssh目录
+			（b）使用ls查看是否有xx.pub文件，如果有，则直接复制其内的内容到github网站中添加公钥
+			（c）如果没有.pub文件，则使用如下命令生成公钥和私钥（在.ssh目录下）：
+					ssh-keygen -t rsa -C "your_email@example.com"
+			（d）测试SSH key ： ssh -T git@github.com
