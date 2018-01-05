@@ -1,0 +1,45 @@
+
+1、git客户端安装完成后，需要做的设置：
+	git config --global user.name "xxx"
+	git config --global user.email "xxxx@xx.com"
+
+2、创建版本库 - 选择一个文件夹，进入文件夹后，执行命令：
+	git init   （创建成功后会有.git目录，可用ls -ah来查看）
+
+3、将文件提交到暂存区：
+	git add <filename>
+
+4、将文件从暂存区提交到版本库：（git commit只会提交暂存区的东西，工作区新的修改不会被提交）
+	git commit -m "write some log"
+
+5、查看当前版本库/工作区的状态，可知道哪些文件被修改过：
+	git status
+
+6、查看当前已修改文件的内容：
+	git diff <filename>
+
+7、查看历史版本提交记录：（带有HEAD标识的是当前版本）
+	git log
+	git log --pretty=oneline （格式化，好看些）
+
+8、版本回退：
+	（1）回退到上一个版本：
+			git reset --hard HEAD^
+	（2）回退到上上一个版本：
+			git reset --hard HEAD^^
+	（3）回退到某个指定版本：
+			git reset --hard <commit id>
+
+9、查看所有历史版本的commit id:
+	git reflog
+
+10、工作区、暂存区、版本库的理解
+	（1）工作区就是我们代码所在的目录，在电脑上可见。
+	（2）暂存区是工作区的文件git add之后存放的区域。它独立于工作区和版本库。里面的文件只能提交到版本库或者撤销到工作区，无法修改。
+	（2）隐藏目录.git就是git的版本库，他跟我们代码在同一个目录下。
+
+11、撤销修改：
+	（1）撤销工作区的修改，撤销后文件回退至最近一次 git commit 或 git add 时的状态。
+			git checkout -- <filename>
+	（2）撤销暂存区的内容，撤销成功后，该内容回退到工作区，再用步骤1的操作就可以彻底清除该内容
+			git reset HEAD <filename>
