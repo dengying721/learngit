@@ -43,3 +43,8 @@
 			git checkout -- <filename>
 	（2）撤销暂存区的内容，撤销成功后，该内容回退到工作区，再用步骤1的操作就可以彻底清除该内容
 			git reset HEAD <filename>
+
+12、删除文件：
+	（1）只删除本地。
+			rm <filename>
+	（2）
