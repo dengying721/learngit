@@ -5,3 +5,5 @@ modify 4th
 modify 5th
 
 Git tracks changes.
+
+Git tracks changes of files.
