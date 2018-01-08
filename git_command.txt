@@ -87,3 +87,5 @@
 			git branch -d dev  （删除本地的dev分支）
 	（7）删除远程仓库上的分支：
 			git push origin --delete dev （删除远程仓库上的dev分支）
+
+15、modify the git-command on the branch of dev
