@@ -70,3 +70,20 @@
 			（d）测试SSH key ： ssh -T git@github.com
 
 14、分支管理
+	（1）本地创建分支：
+			git checkout -b dev （创建后默认切换到分支dev）
+	（2）查看本地分支命令：
+			git branch
+	（3）查看远程仓库的分支命令：
+			git branch -r
+	（3）查看所有分支命令（包含本地和远程的所有分支，本地当前分支为绿色，本地其他分支为白色，远程分支一律为红色，且带有remotes标识）：
+			git branch -a
+
+	（4）本地分支间相互切换命令：
+			git checkout master （切换到master分支）
+	（5）本地分支代码合并到主干master：
+			git merge dev （将分支dev的代码合并到master）
+	（6）删除本地的分支：
+			git branch -d dev  （删除本地的dev分支）
+	（7）删除远程仓库上的分支：
+			git push origin --delete dev （删除远程仓库上的dev分支）
