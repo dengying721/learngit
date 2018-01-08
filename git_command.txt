@@ -59,10 +59,13 @@
 	（3）将本地仓库的文件推送到远程仓库中：
 			git push -u origin master （第一次推送，加-u）
 			git push origin master （后续推送）
-	（4）将远程仓库的文件clone到本地仓库中：（假如远程仓库的地址ssh地址为：git@github.com:michaelliao/gitskills.git）
+	（4）将远程仓库的master分支clone到本地仓库中：（假如远程仓库的地址ssh地址为：git@github.com:michaelliao/gitskills.git）
 			git clone git@github.com:michaelliao/gitskills.git
-	（5）进行文件上传或者clone下载时，可以使用https协议或者通过ssh的git协议。git协议快，https协议每次都要验证登录。
-	（6）本地机器需要生成公钥和私钥，然后将公钥添加到github的SSH key中，这样就能直接使用git协议了。
+	（5）将远程仓库非master分支clone到本地：
+			git checkout -t <remotes branch name>  （-t 标识在本地建立一个和远程分支名字一样的分支）
+			备注：可以使用 git branch -a 获取所有分支的名字。
+	（6）进行文件上传或者clone下载时，可以使用https协议或者通过ssh的git协议。git协议快，https协议每次都要验证登录。
+	（7）本地机器需要生成公钥和私钥，然后将公钥添加到github的SSH key中，这样就能直接使用git协议了。
 			（a）进入 ~/.ssh目录
 			（b）使用ls查看是否有xx.pub文件，如果有，则直接复制其内的内容到github网站中添加公钥
 			（c）如果没有.pub文件，则使用如下命令生成公钥和私钥（在.ssh目录下）：
@@ -78,7 +81,6 @@
 			git branch -r
 	（3）查看所有分支命令（包含本地和远程的所有分支，本地当前分支为绿色，本地其他分支为白色，远程分支一律为红色，且带有remotes标识）：
 			git branch -a
-
 	（4）本地分支间相互切换命令：
 			git checkout master （切换到master分支）
 	（5）本地分支代码合并到主干master：
@@ -87,5 +89,3 @@
 			git branch -d dev  （删除本地的dev分支）
 	（7）删除远程仓库上的分支：
 			git push origin --delete dev （删除远程仓库上的dev分支）
-
-15、modify the git-command on the branch of dev by time 16:20
