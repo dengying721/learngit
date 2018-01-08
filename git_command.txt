@@ -81,7 +81,7 @@
 
 	（4）本地分支间相互切换命令：
 			git checkout master （切换到master分支）
-	（5）本地分支代码合并到主干master：
+	（5）本地分支代码合并到主干master：（需要切换到master分支下再进行合并）
 			git merge dev （将分支dev的代码合并到master）
 	（6）删除本地的分支：
 			git branch -d dev  （删除本地的dev分支）
