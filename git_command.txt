@@ -89,3 +89,34 @@
 			git branch -d dev  （删除本地的dev分支）
 	（8）删除远程仓库上的分支：
 			git push origin --delete dev （删除远程仓库上的dev分支）
+
+15、解决冲突
+	（1）冲突是指在两个不同的分支中，都修改了同一个文件，修改完成后两个分支都进行了提交。此时进行合并，就会发生冲突。
+	（2）合并发生冲突后，需要手动修改有冲突的文件的内容。（冲突的文件在master分支的工作区中进行编辑，消除冲突）
+	（3）修改完后，进行 git add <filname> 进行合并添加。（将master工作区的文件提交到暂存区）
+	（4）合并添加后，进行提交 git commit -m"xxx". （将暂存区中的文件提交到版本库）
+
+16、分支管理策略
+	（1）合并分支时，git默认使用 Fast forword 模式。此种模式下，如果删除分支，则会丢掉分支信息。
+	（2）禁用Fast forword模式，添加--no-ff参数，使用命令：
+			git merge --no-ff dev
+
+17、bug分支
+	（1） “存储”当前工作区：
+			git stash  （命令执行后，当前工作区下git管理的文件会被清除）
+	（2）选定需要修复bug的分支，然后进行临时分支的创建：
+			git checkout <待修复bug的branch>
+			git checkout -b <临时分支名字>
+	（3）在临时分支上进行bug修复，修复完毕后合并到待修复bug的branch
+	（4）删除临时分支
+	（5）切换回原来的开发分支：
+			git checkout <branch>  （此时工作区为空的）
+	（6）查看“存储”的工作区：
+			git stash list
+	（7）恢复工作区：
+			git stash apply  （恢复后，stash内容不删除，需使用git stash drop来删除）
+			git stash pop  （恢复后自动删除stash）
+			git stash apply stash@{x}   （恢复指定的stash，当有多个stash时使用）
+	（8）小结：当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。
+
+
